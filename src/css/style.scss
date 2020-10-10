@@ -1,0 +1,257 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+@import "nullstyle.scss";
+
+@import "offsets.scss"; //  offset
+
+// @import "media.scss";
+
+@mixin line_decoration(
+  $underline_width: 50px,
+  $underline_height: 1px,
+  $underline_bottom: 0px,
+  $background_color: white,
+  // $offset_side: right,
+  // $ld_position: left
+) {
+  position: relative;
+  padding-bottom: 15px;
+  &:after {
+    content: "";
+    position: absolute;
+    width: #{$underline_width};
+    bottom: #{$underline_bottom};
+    height: #{$underline_height};
+    @include offset($underline_width);
+    background: $background_color;
+    z-index: 2;
+  }
+}
+
+.about {
+  // .about__body
+
+  &__body {
+    // max-width: 823px;
+    margin: 0px auto;
+  }
+
+  // .about__header
+
+  &__header {
+    margin-bottom: 65px;
+  }
+
+  // .about__title
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  // .about__text
+
+  &__text {
+    max-width: 688px;
+    color: #868585;
+    font-size: 14px;
+    text-align: center;
+    line-height: 25.89px;
+    margin: 0px auto;
+  }
+
+  // .about__row
+
+  &__row {
+    min-width: 300px;
+
+    display: flex;
+    font-size: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    // margin: 0px -15px;
+  }
+
+  &__column {
+    min-width: 300px;
+    flex: 0 0 33.333%;
+    // border: brown 1px solid;
+
+    // &:nth-child(n + 1) {
+    //   margin-right: -1px;
+    // }
+  }
+
+  // .about__column
+}
+.title {
+  // width: 141px;
+  // height: 26px;
+  // color: black;
+  font-family: Lato;
+  font-size: 34;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 8.95px;
+  text-align: center;
+  @include line_decoration(50px);
+}
+.item-about {
+  padding: 0px 15px;
+  text-align: center;
+  // .item-about__icon
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 0.5vh solid rgb(42, 129, 24);
+    // border-radius: 50%;
+    & > img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+    }
+
+    // & > img {
+    //   width: 50px;
+    //   height: 50px;
+    //   object-fit: cover;
+    // }
+  }
+
+  // .item-about__title
+
+  &__title {
+    line-height: 25.89px;
+    font-size: 14px;
+  }
+
+  // .item-about__text
+
+  &__text {
+    line-height: 25.89px;
+    font-size: 14px;
+    word-wrap: break-word;
+  }
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+
+  max-height: 20%;
+  background-color: rgb(16, 104, 101);
+  //   background-color: rgb(108, 14, 14);
+  // .footer__licenses
+  &__licenses {
+    color: rgb(48, 14, 44);
+  }
+}
+
+.license {
+  // .license__link
+
+  &__link {
+    color: rgb(0, 255, 162);
+    text-decoration: none;
+  }
+}
+
+.header {
+  overflow: hidden;
+  min-height: 3vh;
+  max-height: 5vh;
+  width: 100%;
+  text-align: center;
+  background: rgb(179, 172, 160);
+}
+
+.main {
+  flex: 1 1 auto;
+  background-color: rgb(100, 202, 155);
+  // & > .container {
+  // }
+}
+
+.wrapper {
+  // background-color: rgb(108, 156, 6);
+  // overflow: scroll;
+
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0px 15px;
+}
+
+@media (max-width: 1200px) {
+  //  ширина вьюпорта
+  .container {
+    max-width: 970px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 767px) {
+  //  менее 768
+  .container {
+    max-width: none;
+  }
+}
+
+.infos {
+  // .infos__body
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  // max-width: 700px;
+  margin: 0 auto;
+  // flex-wrap: wrap;
+
+  &__body {
+  }
+
+  // .infos__header
+
+  &__header {
+    text-align: center;
+    color: brown;
+    font-size: 18px;
+    line-height: 14px;
+  }
+
+  // .infos__data
+
+  &__data {
+    margin: 10px 0;
+  }
+}
+.element {
+  // .element__info
+  &__info {
+    text-indent: 20px;
+    color: rgb(13, 80, 92);
+    margin: 10px 0;
+    padding: 0px 10px;
+    word-wrap: break-word;
+
+    @include line_decoration(200px);
+    // word-break: break-all;
+  }
+}
+
+// @include medias();

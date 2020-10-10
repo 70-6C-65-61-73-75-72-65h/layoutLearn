@@ -1,0 +1,30 @@
+// @mixin left_offset_center($smth_width) {
+//   left: calc(50% - #{$smth_width} / 2);
+// }
+// @mixin left_offset_left($smth_width) {
+//   left: 0px;
+// }
+// @mixin left_offset_right($smth_width) {
+//   left: calc(100% - #{$smth_width});
+// }
+
+// @mixin left_offset($lo, $smth_width) {
+//   @if $lo == center {
+//     @include left_offset_center($smth_width);
+//   } @else if $lo == left {
+//     @include left_offset_left($smth_width);
+//   } @else if $lo == right {
+//     @include left_offset_right($smth_width);
+//   }
+// }
+
+@mixin offset($smth_width, $offset_side: left, $lo: center) {
+  // offset_side can be left or right
+  @if $lo == center {
+    #{$offset_side}: calc(50% - #{$smth_width} / 2);
+  } @else if $lo == $offset_side {
+    #{$offset_side}: 0px;
+  } @else if $lo != $offset_side {
+    #{$offset_side}: calc(100% - #{$smth_width});
+  }
+}
